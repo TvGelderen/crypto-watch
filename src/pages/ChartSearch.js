@@ -76,18 +76,23 @@ export default function ChartSearch()
       <Box className="min-vh-100 w-100">
         <Box className='mx-4 mt-3'>
           <form>
+            <div
+              className='w-100 m-auto' 
+              style={{maxWidth: "1200px"}}
+            >
               <TextField 
                 id="outlined-basic" 
-                label="Search" 
-                placeholder="Search..." 
-                variant="outlined"
+                label="Search"
                 onInput={event => {
                   setSearchQuery(event.target.value);
                 }}
                 fullWidth
+                className="rounded"
+                style={{backgroundColor: "#262626"}}
               />
+            </div>
           </form>
-          <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={6} className='mt-3'>
+          <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={6} className='mt-3 m-auto' style={{maxWidth: "1200px"}}>
               <TableContainer>
                   <Table>
                       <TableHead>
@@ -141,7 +146,7 @@ export default function ChartSearch()
                                                         : column.id === 'current_price'
                                                             ? <span>{symbol + value.toFixed(2).toLocaleString('en-US')}</span>
                                                             : column.id === 'sparkline_in_7d'
-                                                                ? <Sparklines data={value.price} limit={200}>
+                                                                ? <Sparklines data={value.price} limit={200} height={40}>
                                                                       <SparklinesLine color={
                                                                         value.price[0] > value.price[value.price.length - 1]
                                                                           ? "red" : "green"} />

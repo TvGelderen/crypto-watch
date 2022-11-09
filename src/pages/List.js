@@ -93,18 +93,23 @@ export default function List()
     return (
       <Box className='mx-4 mt-3 min-vh-100 w-100'>
         <form>
+          <div
+            className='w-100 m-auto' 
+            style={{maxWidth: "1200px"}}
+          >
             <TextField 
               id="outlined-basic" 
-              label="Search" 
-              placeholder="Search..." 
-              variant="outlined"
+              label="Search"
               onInput={event => {
                 setSearchQuery(event.target.value);
               }}
               fullWidth
+              className="rounded"
+              style={{backgroundColor: "#262626"}}
             />
+          </div>
         </form>
-        <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={6} className='mt-3'>
+        <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={6} className='mt-3 m-auto' style={{maxWidth: "1200px"}}>
             <TableContainer>
                 <Table>
                     <TableHead>
