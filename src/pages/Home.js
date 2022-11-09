@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, CircularProgress, Paper } from '@mui/material';
+import { Box, CircularProgress, Divider, Paper } from '@mui/material';
 import axios from 'axios';
 import { CurrencyState } from '../context/CurrencyContext';
 import AliceCarousel from 'react-alice-carousel';
@@ -86,6 +86,15 @@ export default function Home()
                         items={items}
                       />
                 }  
+            </Paper>
+            <Paper className="w-100 mt-5 p-3 m-auto" style={{maxWidth: "720px"}} elevation={6}>
+                <h2>About this web app</h2>
+                <Divider />
+                <p className="mt-3" style={{textAlign: "justify"}}>
+                    This web app was created with ReactJS and MaterialUI. It uses the <a href="https://www.coingecko.com/en/api/documentation">Coingecko Crypto API</a> to display current and historic price data of a large number of their cryptocurrencies. On the chart search page this app uses the react-sparklines package to display the sparklines of the price data from the past 7 days. Each individual coin page uses ChartJS to display the chart of the coin's price data of the past day all the way up to the inception of the coin. While loading the app uses the Skeleton component provided by MaterialUI.
+
+                    The currency can be changed from the menu, since the app uses ReactJS's context API it is changed for the entire app.
+                </p>
             </Paper>
         </Box>
     );
