@@ -51,7 +51,7 @@ function App() {
           <CssBaseline />
           <DrawerMenu />
               <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/list" element={<List />} />
                 <Route exact path="/chart/" element={<ChartSearch />} />

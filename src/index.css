@@ -17,6 +17,8 @@ body {
   font-family: 'Montserrat', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./bg.jpg");
+  backdrop-filter: blur(5px);
 }
 
 code {
