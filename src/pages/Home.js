@@ -34,7 +34,7 @@ export default function Home()
 
     const carouselIcon = {
         height: "90px",
-        marginTop: "30px",
+        marginTop: "27px",
         marginBottom: "10px"
     }
 
@@ -64,7 +64,7 @@ export default function Home()
 
     return (
         <Box className="min-vh-100 w-100 text-center">
-            <h1 className='py-4'>Crypto Watch</h1>
+            <h1 className='py-3'>Crypto Watch</h1>
             <Paper className='banner' style={{position: "relative", overflow: "hidden"}} elevate={6}>
                 {loading 
                     ? <CircularProgress style={{marginTop: 80}} />

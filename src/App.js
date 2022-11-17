@@ -11,6 +11,7 @@ import ChartSearch from './pages/ChartSearch';
 
 // Components
 import DrawerMenu from './components/DrawerMenu';
+import Navbar from './components/navbar/Navbar';
 
 // Theme
 import { CssBaseline } from '@mui/material';
@@ -49,14 +50,14 @@ function App() {
       <AppContextProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <DrawerMenu />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/list" element={<List />} />
-                <Route exact path="/chart/" element={<ChartSearch />} />
-                <Route path="/chart/:id" element={<Chart />} />
-              </Routes>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/list" element={<List />} />
+            <Route exact path="/chart/" element={<ChartSearch />} />
+            <Route path="/chart/:id" element={<Chart />} />
+          </Routes>
         </ThemeProvider>
       </AppContextProvider>
     </BrowserRouter>
