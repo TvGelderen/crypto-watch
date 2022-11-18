@@ -17,6 +17,7 @@ import Navbar from './components/navbar/Navbar';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { AppContextProvider } from './context/AppContext';
+import Header from './components/Header';
 
 const theme = createTheme({
     palette: {
@@ -51,13 +52,16 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/list" element={<List />} />
-            <Route exact path="/chart/" element={<ChartSearch />} />
-            <Route path="/chart/:id" element={<Chart />} />
-          </Routes>
+          <div className='w-100'>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/list" element={<List />} />
+              <Route exact path="/chart/" element={<ChartSearch />} />
+              <Route path="/chart/:id" element={<Chart />} />
+            </Routes>
+          </div>
         </ThemeProvider>
       </AppContextProvider>
     </BrowserRouter>

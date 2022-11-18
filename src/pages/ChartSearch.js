@@ -73,8 +73,7 @@ export default function ChartSearch()
     }, [currency]);
 
     return (
-      <Box className="min-vh-100 w-100 p-2" style={{marginTop: 80}}>
-        <Box>
+      <Box className="min-vh-100 w-100 p-2">
           <form>
             <div
               className='w-100 m-auto' 
@@ -162,7 +161,6 @@ export default function ChartSearch()
                   </Table>
               </TableContainer>
           </Paper>
-        </Box>
       </Box>
     );
 }

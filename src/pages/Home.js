@@ -64,7 +64,6 @@ export default function Home()
 
     return (
         <Box className="min-vh-100 w-100 text-center">
-            <h1 className='py-3'>Crypto Watch</h1>
             <Paper className='banner' style={{position: "relative", overflow: "hidden"}} elevate={6}>
                 {loading 
                     ? <CircularProgress style={{marginTop: 80}} />
