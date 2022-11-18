@@ -91,7 +91,7 @@ export default function List()
     }, [currency]);
 
     return (
-      <Box className='min-vh-100 w-100 px-2'>
+      <Box className='h-100 w-100 px-2'>
         <form>
           <div
             className='w-100 m-auto' 
@@ -110,8 +110,8 @@ export default function List()
           </div>
         </form>
         <Paper sx={{ width: "100%", overflow: "hidden" }} elevation={6} className='mt-3 m-auto' style={{maxWidth: "1200px"}}>
-            <TableContainer>
-                <Table>
+            <TableContainer sx={{maxHeight: 950}}>
+                <Table stickyHeader>
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (

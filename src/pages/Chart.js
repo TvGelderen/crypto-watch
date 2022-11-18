@@ -58,7 +58,7 @@ export default function Chart()
     };
 
     return (
-      <Box className="min-vh-100 w-100 p-2">
+      <Box className="min-h-100 w-100 p-2">
         <Grid container spacing={2}>
             <Grid item xl={3} lg={12} md={12} sm={12} xs={12}>
                 {!loadingCoin 

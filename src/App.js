@@ -10,7 +10,6 @@ import Chart from './pages/Chart';
 import ChartSearch from './pages/ChartSearch';
 
 // Components
-import DrawerMenu from './components/DrawerMenu';
 import Navbar from './components/navbar/Navbar';
 
 // Theme
@@ -52,7 +51,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Navbar />
-          <div className='w-100'>
+          <div className='w-100 min-vh-100'>
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
