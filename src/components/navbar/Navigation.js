@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 import { MenuItem } from "./MenuItem";
+import { MenuData } from "../MenuData";
 
 const variants = {
   open: {
@@ -11,12 +12,10 @@ const variants = {
   }
 };
 
-export const Navigation = () => (
+export const Navigation = ({ toggle }) => (
   <motion.ul variants={variants} style={{marginTop: 75}}>
-    {itemIds.map(i => (
-      <MenuItem i={i} key={i} />
+    {MenuData.map(item => (
+      <MenuItem item={item} toggle={toggle} key={item.name} />
     ))}
   </motion.ul>
 );
-
-const itemIds = [0, 1, 2, 3, 4];

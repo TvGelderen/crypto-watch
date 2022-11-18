@@ -58,7 +58,7 @@ export default function Chart()
     };
 
     return (
-      <Box className="min-vh-100 w-100 mt-3 mx-3">
+      <Box className="min-vh-100 w-100 p-2" style={{marginTop: 90}}>
         <Grid container spacing={2}>
             <Grid item xl={3} lg={12} md={12} sm={12} xs={12}>
                 {!loadingCoin 
@@ -100,13 +100,13 @@ export default function Chart()
                     ?
                     coinHistory !== undefined
                         ? <Box>
-                            <Paper elevation={6} className="text-center">
-                                    <Button variant="outlined" className="m-2" value={1} onClick={handleDay}>1 Day</Button>
-                                    <Button variant="outlined" className="m-2" value={7} onClick={handleDay}>7 Days</Button>
-                                    <Button variant="outlined" className="m-2" value={30} onClick={handleDay}>30 Days</Button>
-                                    <Button variant="outlined" className="m-2" value={60} onClick={handleDay}>60 Days</Button>
-                                    <Button variant="outlined" className="m-2" value={365} onClick={handleDay}>365 Days</Button>
-                                    <Button variant="outlined" className="m-2" value={"max"} onClick={handleDay}>All time</Button>
+                            <Paper elevation={6} className="text-center" style={{height: 78}}>
+                                    <Button variant="outlined" className="mx-2" value={1} onClick={handleDay}>1 Day</Button>
+                                    <Button variant="outlined" className="mx-2" value={7} onClick={handleDay}>7 Days</Button>
+                                    <Button variant="outlined" className="mx-2" value={30} onClick={handleDay}>30 Days</Button>
+                                    <Button variant="outlined" className="mx-2" value={60} onClick={handleDay}>60 Days</Button>
+                                    <Button variant="outlined" className="mx-2" value={365} onClick={handleDay}>365 Days</Button>
+                                    <Button variant="outlined" className="mx-2" value={"max"} onClick={handleDay}>All time</Button>
                             </Paper>
                             <Paper elevation={6} className="mt-3">
                                 <Box padding={3} style={{textAlign: "center"}}>

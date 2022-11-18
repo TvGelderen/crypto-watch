@@ -91,7 +91,7 @@ export default function List()
     }, [currency]);
 
     return (
-      <Box className='mx-4 mt-3 min-vh-100 w-100'>
+      <Box className='mx-4 min-vh-100 w-100 px-2' style={{marginTop: 90}}>
         <form>
           <div
             className='w-100 m-auto' 

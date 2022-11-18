@@ -73,8 +73,8 @@ export default function ChartSearch()
     }, [currency]);
 
     return (
-      <Box className="min-vh-100 w-100">
-        <Box className='mx-4 mt-3'>
+      <Box className="min-vh-100 w-100 p-2" style={{marginTop: 80}}>
+        <Box>
           <form>
             <div
               className='w-100 m-auto' 

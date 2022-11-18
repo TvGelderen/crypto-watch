@@ -30,16 +30,18 @@ const Navbar = () => {
     const { height } = useDimensions(containerRef);
 
     return (
-        <motion.nav
-          initial={false}
-          animate={isOpen ? "open" : "closed"}
-          custom={height}
-          ref={containerRef}
-        >
-          <motion.div className="navBackground" variants={sidebar} />
-          <Navigation />
-          <MenuToggle toggle={() => toggleOpen()} />
-        </motion.nav>
+      <div style={{height: "100px"}}>
+          <motion.nav
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            custom={height}
+            ref={containerRef}
+          >
+            <motion.div className="navBackground" variants={sidebar} />
+            <Navigation toggle={() => toggleOpen()} />
+            <MenuToggle toggle={() => toggleOpen()} />
+          </motion.nav>
+      </div>
     )
 }
 
