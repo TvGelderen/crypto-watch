@@ -90,6 +90,10 @@ export default function List()
             .catch(error => console.error(error));
     }, [currency]);
 
+    const handleSort = sortBy => {
+      console.log(sortBy)
+    }
+
     return (
       <Box className='h-100 w-100 px-2'>
         <form>
@@ -119,6 +123,7 @@ export default function List()
                                   key={column.id}
                                   align={column.align}
                                   style={{ minWidth: column.minWidth, fontFamily: ["Montserrat", "sans-serif"] }}
+                                  onClick={() => handleSort(column.id)}
                                 >
                                 {column.label}
                                 </StyledTableCell>
@@ -147,11 +152,11 @@ export default function List()
                             .map(coin => {
                               return (
                                   <StyledTableRow  hover role="checkbox" tabIndex={-1} key={coin.id} style={{cursor: "pointer"}}>
-                                      {columns.map(column => {
+                                      {columns.map((column, index) => {
                                           const value = coin[column.id];
                                           return (
                                             <StyledTableCell 
-                                              key={coin.id} 
+                                              key={index} 
                                               align={column.align}
                                               style={{ fontFamily: ["Montserrat", "sans-serif"] }}
                                               onClick={() => navigate(`/chart/${coin.id}`)}
