@@ -91,7 +91,7 @@ export default function List()
     }, [currency]);
 
     const handleSort = sortBy => {
-      console.log(sortBy)
+      console.log("push")
     }
 
     return (
@@ -122,10 +122,10 @@ export default function List()
                                 <StyledTableCell
                                   key={column.id}
                                   align={column.align}
-                                  style={{ minWidth: column.minWidth, fontFamily: ["Montserrat", "sans-serif"] }}
+                                  style={{ minWidth: column.minWidth, fontFamily: ["Montserrat", "sans-serif"], cursor: 'pointer' }}
                                   onClick={() => handleSort(column.id)}
                                 >
-                                {column.label}
+                                  {column.label}
                                 </StyledTableCell>
                             ))}
                         </TableRow>
