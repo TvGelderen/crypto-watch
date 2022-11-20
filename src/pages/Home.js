@@ -63,7 +63,7 @@ export default function Home()
         [];
 
     return (
-        <Box className="min-vh-100 w-100 text-center">
+        <Box className="h-100 w-100 text-center">
             <Paper className='banner' style={{position: "relative", overflow: "hidden"}} elevate={6}>
                 {loading 
                     ? <CircularProgress style={{marginTop: 80}} />

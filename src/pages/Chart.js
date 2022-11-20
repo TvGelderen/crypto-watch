@@ -4,11 +4,10 @@ import { useParams } from "react-router-dom";
 import { CurrencyState } from "../context/CurrencyContext";
 import axios from "axios";
 import { Coin, CoinHistory } from "../config/ApiUrl";
-import ReactHtmlParser from 'react-html-parser';
 import { addCommas } from "../utils/utils";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, LineElement, LineController, CategoryScale, LinearScale, PointElement, Legend, Tooltip } from "chart.js";
-//import "chartjs-plugin-datalabels";
+import parse from 'html-react-parser';
 
 ChartJS.register(
     LineElement,
@@ -74,7 +73,7 @@ export default function Chart()
                                     <Typography variant="h3" style={{fontFamily: ["Montserrat", "sans-serif"]}}>{coin.name}</Typography>
                                     <Typography style={{fontFamily: ["Montserrat", "sans-serif"], padding: 10}}>Created: {coin.genesis_date}</Typography>
                                     <Typography style={{fontFamily: ["Montserrat", "sans-serif"], textAlign: "justify", marginTop: 5}}>
-                                        {ReactHtmlParser(coin.description.en)}
+                                        {parse(coin.description.en)}
                                     </Typography>
                                     <br />
                                     <Divider />
