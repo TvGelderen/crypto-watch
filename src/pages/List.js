@@ -74,6 +74,7 @@ export default function List()
     const [data, setData ] = useState();
     const [loading, setLoading] = useState();
     const [searchQuery, setSearchQuery] = useState("");
+    const [sort, setSort] = useState('');
 
     const { currency, symbol } = CurrencyState();
 
@@ -90,12 +91,27 @@ export default function List()
             .catch(error => console.error(error));
     }, [currency]);
 
-    const handleSort = sortBy => {
-      console.log("push")
-    }
+    useEffect(() => {
+        console.log(data !== undefined ? data[0] : null);
+
+        switch (sort)
+        {
+            case 'price_change_percentage_24h':
+                data.sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h)
+                break;
+            case 'name':
+            case 'symbol':
+            case 'current_price':
+            case 'total_volume':
+            default:
+                if (data)
+                  data.sort((a, b) => a.market_cap_rank - b.market_cap_rank)
+                break;
+        }
+    }, [sort]);
 
     return (
-      <Box className='h-100 w-100 px-2'>
+      <Box className='absolute h-100 w-100 px-2'>
         <form>
           <div
             className='w-100 m-auto' 
@@ -123,7 +139,7 @@ export default function List()
                                   key={column.id}
                                   align={column.align}
                                   style={{ minWidth: column.minWidth, fontFamily: ["Montserrat", "sans-serif"], cursor: 'pointer' }}
-                                  onClick={() => handleSort(column.id)}
+                                  onClick={() => setSort(column.id)}
                                 >
                                   {column.label}
                                 </StyledTableCell>
@@ -145,8 +161,7 @@ export default function List()
                                   </TableCell>
                             ))}
                           </TableRow>
-                        : data !== undefined 
-                            ? data
+                        : data !== undefined && data
                             .filter(coin => coin.name.toLowerCase().includes(searchQuery.toLowerCase())
                                           || coin.symbol.toLowerCase().includes(searchQuery.toLowerCase()))
                             .map(coin => {
@@ -173,8 +188,7 @@ export default function List()
                                           );
                                         })}
                                     </StyledTableRow >
-                                )})
-                            : <></>}
+                                )})}
                     </TableBody>
                 </Table>
             </TableContainer>

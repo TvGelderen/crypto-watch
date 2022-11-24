@@ -9,14 +9,11 @@ import List from './pages/List';
 import Chart from './pages/Chart';
 import ChartSearch from './pages/ChartSearch';
 
-// Components
-import Navbar from './components/navbar/Navbar';
-
 // Theme
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { AppContextProvider } from './context/AppContext';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 const theme = createTheme({
     palette: {
@@ -50,9 +47,8 @@ function App() {
       <AppContextProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Navbar />
-          <div className='w-100 min-vh-100'>
-            <Header />
+          <div className='flex w-100 min-vh-100'>
+            <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
