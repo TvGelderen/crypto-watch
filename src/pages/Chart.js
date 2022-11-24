@@ -97,17 +97,13 @@ export default function Chart()
                     ?
                     coinHistory !== undefined
                         ? <Box>
-                            <Paper 
-                              elevation={6} 
-                              className="text-center" 
-                              style={{ height: 200 }}
-                            >
-                                    <Button variant="outlined" className="" value={1} onClick={handleDay}>1 Day</Button>
-                                    <Button variant="outlined" className="" value={7} onClick={handleDay}>7 Days</Button>
-                                    <Button variant="outlined" className="" value={30} onClick={handleDay}>30 Days</Button>
-                                    <Button variant="outlined" className="" value={60} onClick={handleDay}>60 Days</Button>
-                                    <Button variant="outlined" className="" value={365} onClick={handleDay}>365 Days</Button>
-                                    <Button variant="outlined" className="" value={"max"} onClick={handleDay}>All time</Button>
+                            <Paper elevation={6} className="text-center">
+                                <Button variant="outlined" className="-m-2" value={1} onClick={handleDay}>1 Day</Button>
+                                <Button variant="outlined" className="" value={7} onClick={handleDay}>7 Days</Button>
+                                <Button variant="outlined" className="" value={30} onClick={handleDay}>30 Days</Button>
+                                <Button variant="outlined" className="" value={60} onClick={handleDay}>60 Days</Button>
+                                <Button variant="outlined" className="" value={365} onClick={handleDay}>365 Days</Button>
+                                <Button variant="outlined" className="" value={"max"} onClick={handleDay}>All time</Button>
                             </Paper>
                             <Paper elevation={6} className="mt-3">
                                 <Box padding={3} style={{textAlign: "center"}}>
