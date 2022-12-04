@@ -1,5 +1,6 @@
 {
-  "name": "crypto-dashboard",
+  "homepage": "https://crypto-watch-tvgelderen.vercel.app/",
+  "name": "crypto-watch",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
