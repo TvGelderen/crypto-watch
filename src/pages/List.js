@@ -92,8 +92,6 @@ export default function List()
     }, [currency]);
 
     useEffect(() => {
-        console.log(data !== undefined ? data[0] : null);
-
         switch (sort)
         {
             case 'price_change_percentage_24h':
@@ -125,7 +123,7 @@ export default function List()
               }}
               fullWidth
               className="rounded"
-              style={{backgroundColor: "#262626"}}
+              style={{backgroundColor: "#2a2a2a"}}
             />
           </div>
         </form>
@@ -148,25 +146,25 @@ export default function List()
                     </TableHead>
                     <TableBody>
                       {loading 
-                        ? <TableRow role="checkbox" tabIndex={-1} key={1}>
+                        ? <TableRow role="checkbox" tabIndex={-1}>
                             {columns.map((column) => (
-                                  <TableCell
-                                    key={column.id + column.name}
-                                    align={column.align}
-                                    style={{ minWidth: column.minWidth }}
-                                  >
-                                    <Skeleton width="100%">
-                                      <Typography>.</Typography>
-                                    </Skeleton>
-                                  </TableCell>
+                                <TableCell
+                                  key={column.id + column.name}
+                                  align={column.align}
+                                  style={{ minWidth: column.minWidth }}
+                                >
+                                  <Skeleton width="100%">
+                                    <Typography>.</Typography>
+                                  </Skeleton>
+                                </TableCell>
                             ))}
                           </TableRow>
                         : data !== undefined && data
                             .filter(coin => coin.name.toLowerCase().includes(searchQuery.toLowerCase())
-                                          || coin.symbol.toLowerCase().includes(searchQuery.toLowerCase()))
+                                         || coin.symbol.toLowerCase().includes(searchQuery.toLowerCase()))
                             .map(coin => {
                               return (
-                                  <StyledTableRow  hover role="checkbox" tabIndex={-1} key={coin.id} style={{cursor: "pointer"}}>
+                                  <StyledTableRow hover role="checkbox" tabIndex={-1} key={coin.id} style={{cursor: "pointer"}}>
                                       {columns.map((column, index) => {
                                           const value = coin[column.id];
                                           return (

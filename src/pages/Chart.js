@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Paper, Skeleton, Typography, Divider, Button } from "@mui/material";
+import { Box, Grid, Paper, Skeleton, Typography, Divider } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { CurrencyState } from "../context/CurrencyContext";
 import axios from "axios";
@@ -52,7 +52,7 @@ export default function Chart()
             .catch(error => console.error(error));        
     }, [id, currency, days]);
 
-    const handleDay = event => setDays(event.target.value)
+    console.log(coinHistory.prices)
 
     return (
       <Box className="min-h-100 w-100 p-2">
@@ -90,23 +90,22 @@ export default function Chart()
                         : <></>
                     : <div>
                         <Skeleton variant="rectangular" height={360} />
-                        </div>}
+                      </div>}
             </Grid>
             <Grid item xl={9} lg={12} md={12} sm={12} xs={12}>
                 {!loadingHistory
                     ?
                     coinHistory !== undefined
-                        ? <Box style={{minWidth: "1000px", overflow: "scroll"}}>
-                            <Paper elevation={6} className="text-center">
-                                <Button variant="outlined" className="-m-2" value={1} onClick={handleDay}>1 Day</Button>
-                                <Button variant="outlined" className="" value={7} onClick={handleDay}>7 Days</Button>
-                                <Button variant="outlined" className="" value={30} onClick={handleDay}>30 Days</Button>
-                                <Button variant="outlined" className="" value={60} onClick={handleDay}>60 Days</Button>
-                                <Button variant="outlined" className="" value={365} onClick={handleDay}>365 Days</Button>
-                                <Button variant="outlined" className="" value={"max"} onClick={handleDay}>All time</Button>
+                        ? <Box>
+                            <Paper elevation={6} style={{ display: "flex", justifyContent: "center" }}>
+                                <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(1)}>1 Day</Typography>
+                                <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(7)}>7 Days</Typography>
+                                <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(30)}>30 Days</Typography>
+                                <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(60)}>60 Days</Typography>
+                                <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(365)}>365 Days</Typography>                                
                             </Paper>
-                            <Paper elevation={6} className="mt-3">
-                                <Box padding={3} style={{textAlign: "center"}}>
+                            <Paper elevation={6} className="mt-3" style={{ overflow: "scroll" }}>
+                                <Box padding={3} style={{ textAlign: "center", minWidth: "1000px" }}>
                                     <Typography variant="h2" style={{fontFamily: ["Montserrat", "sans-serif"]}}>Price Chart</Typography>
                                     <Line 
                                         data={{
@@ -126,8 +125,8 @@ export default function Chart()
                                     />
                                 </Box>
                             </Paper>
-                            <Paper elevation={6} className="mt-3">
-                                <Box padding={3} style={{textAlign: "center"}}>
+                            <Paper elevation={6} className="mt-3" style={{ overflow: "scroll" }}>
+                                <Box padding={3} style={{ textAlign: "center", minWidth: "1000px" }}>
                                     <Typography variant="h2" style={{fontFamily: ["Montserrat", "sans-serif"]}}>Market Cap Chart</Typography>
                                     <Line 
                                         data={{

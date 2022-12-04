@@ -82,12 +82,10 @@ export default function ChartSearch()
               <TextField 
                 id="outlined-basic" 
                 label="Search"
-                onInput={event => {
-                  setSearchQuery(event.target.value);
-                }}
+                onInput={event => setSearchQuery(event.target.value)}
                 fullWidth
                 className="rounded"
-                style={{backgroundColor: "#262626"}}
+                style={{backgroundColor: "#2a2a2a"}}
               />
             </div>
           </form>
@@ -109,10 +107,10 @@ export default function ChartSearch()
                       </TableHead>
                       <TableBody>
                         {loading 
-                          ? <TableRow role="checkbox" tabIndex={-1} key={1}>
-                              {columns.map((column) => (
+                          ? <TableRow role="checkbox" tabIndex={-1}>
+                              {columns.map(column => (
                                     <TableCell
-                                      key={column.path}
+                                      key={column.name}
                                       align={column.align}
                                       style={{ minWidth: column.minWidth }}
                                     >
@@ -126,14 +124,13 @@ export default function ChartSearch()
                               ? data
                               .filter(coin => coin.name.toLowerCase().includes(searchQuery.toLowerCase())
                                            || coin.symbol.toLowerCase().includes(searchQuery.toLowerCase()))
-                              .map(coin => {
-                                return (
-                                    <StyledTableRow  hover role="checkbox" tabIndex={-1} key={coin.id} style={{cursor: "pointer"}}>
-                                        {columns.map(column => {
+                              .map((coin, index) => (
+                                    <StyledTableRow  hover role="checkbox" tabIndex={-1} key={index} style={{cursor: "pointer"}}>
+                                        {columns.map((column, idx) => {
                                             const value = coin[column.id];
                                             return (
                                               <StyledTableCell 
-                                                key={coin.name} 
+                                                key={coin.name + idx} 
                                                 align={column.align}
                                                 style={{ fontFamily: ["Montserrat", "sans-serif"] }}
                                                 onClick={() => navigate(`/chart/${coin.id}`)}
@@ -155,7 +152,7 @@ export default function ChartSearch()
                                             );
                                           })}
                                       </StyledTableRow >
-                                  )})
+                                  ))
                               : <></>}
                       </TableBody>
                   </Table>

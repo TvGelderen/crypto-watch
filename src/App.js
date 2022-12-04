@@ -34,8 +34,8 @@ const theme = createTheme({
             disabledBackground: 'rgba(255, 255, 255, 0.12)',
         },
         background: {
-            default: '#1a1a1a',
-            paper:   '#262626'
+            default: '#202020',
+            paper:   '#2a2a2a'
         },
         divider: 'rgba(255, 255, 255, 0.12)',
     },

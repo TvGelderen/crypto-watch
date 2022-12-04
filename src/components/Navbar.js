@@ -45,7 +45,7 @@ const Navbar = () => {
             </div>
             <ul>
               {MenuData.map(item => (
-                <li>
+                <li key={item.name}>
                   <Link to={item.path} className='nav-item' onClick={toggleOpen}>
                     {item.icon} {item.name}
                   </Link>
