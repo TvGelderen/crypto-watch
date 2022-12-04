@@ -43,7 +43,7 @@ const theme = createTheme({
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/React'>
       <AppContextProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
