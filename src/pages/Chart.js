@@ -52,8 +52,6 @@ export default function Chart()
             .catch(error => console.error(error));        
     }, [id, currency, days]);
 
-    console.log(coinHistory.prices)
-
     return (
       <Box className="min-h-100 w-100 p-2">
         <Grid container spacing={2}>
@@ -94,8 +92,7 @@ export default function Chart()
             </Grid>
             <Grid item xl={9} lg={12} md={12} sm={12} xs={12}>
                 {!loadingHistory
-                    ?
-                    coinHistory !== undefined
+                    ? coinHistory !== undefined
                         ? <Box>
                             <Paper elevation={6} style={{ display: "flex", justifyContent: "center" }}>
                                 <Typography className="py-1 px-2 m-2 rounded" style={{ backgroundColor: "#3e3e3e", cursor: "pointer" }} onClick={() => setDays(1)}>1 Day</Typography>
