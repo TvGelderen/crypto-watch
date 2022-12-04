@@ -39,7 +39,7 @@ export default function Chart()
                 setLoadingCoin(false);
             })
             .catch(error => console.error(error));     
-    }, [currency]);
+    }, [id, currency]);
 
     useEffect(() => {
         setLoadingHistory(true);
@@ -50,7 +50,7 @@ export default function Chart()
                 setLoadingHistory(false);
             })
             .catch(error => console.error(error));        
-    }, [currency, days]);
+    }, [id, currency, days]);
 
     const handleDay = event => setDays(event.target.value)
 
@@ -96,7 +96,7 @@ export default function Chart()
                 {!loadingHistory
                     ?
                     coinHistory !== undefined
-                        ? <Box>
+                        ? <Box style={{minWidth: "1000px", overflow: "scroll"}}>
                             <Paper elevation={6} className="text-center">
                                 <Button variant="outlined" className="-m-2" value={1} onClick={handleDay}>1 Day</Button>
                                 <Button variant="outlined" className="" value={7} onClick={handleDay}>7 Days</Button>

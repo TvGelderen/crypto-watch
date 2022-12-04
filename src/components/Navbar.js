@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion/dist/framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
@@ -46,7 +46,7 @@ const Navbar = () => {
             <ul>
               {MenuData.map(item => (
                 <li>
-                  <Link to={item.path} className='nav-item'>
+                  <Link to={item.path} className='nav-item' onClick={toggleOpen}>
                     {item.icon} {item.name}
                   </Link>
                 </li>

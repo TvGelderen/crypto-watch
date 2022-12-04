@@ -108,7 +108,7 @@ export default function List()
                   data.sort((a, b) => a.market_cap_rank - b.market_cap_rank)
                 break;
         }
-    }, [sort]);
+    }, [data, sort]);
 
     return (
       <Box className='absolute h-100 w-100 px-2'>
